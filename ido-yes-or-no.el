@@ -9,6 +9,7 @@
 
 (require 'ido)
 
+;;;###autoload
 (define-minor-mode ido-yes-or-no-mode
   "Use ido for `yes-or-no-p'."
   nil
