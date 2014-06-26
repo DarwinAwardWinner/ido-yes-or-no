@@ -4,7 +4,7 @@
 
 ;; Author: Ryan C. Thompson
 ;; URL: https://github.com/DarwinAwardWinner/ido-yes-or-no
-;; Version: 1.1
+;; Version: 1.2
 ;; Package-Requires: ()
 
 (require 'ido)
