@@ -5,7 +5,7 @@
 ;; Author: Ryan C. Thompson
 ;; URL: https://github.com/DarwinAwardWinner/ido-yes-or-no
 ;; Version: 1.3
-;; Package-Requires: ()
+;; Package-Requires: ((ido-completing-read+ "0"))
 
 (require 'ido)
 
@@ -25,7 +25,7 @@
     ;; around completion allowing exiting with an empty string)
     (while (string= answer "")
       (message "Please answer yes or no.")
-      (setq answer (ido-completing-read
+      (setq answer (ido-completing-read+
                     (concat "Please answer yes or no.\n"
                             yes-or-no-prompt)
                     choices nil 'require-match)))
