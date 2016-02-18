@@ -20,7 +20,15 @@
   "Ask user a yes-or-no question using ido."
   (let* ((yes-or-no-prompt (concat prompt " "))
          (choices '("yes" "no"))
-         (answer (ido-completing-read yes-or-no-prompt choices nil 'require-match)))
+         (answer (ido-completing-read+ yes-or-no-prompt choices nil 'require-match)))
+    ;; Keep asking until they enter a valid choice (needed to work
+    ;; around completion allowing exiting with an empty string)
+    (while (string= answer "")
+      (message "Please answer yes or no.")
+      (setq answer (ido-completing-read
+                    (concat "Please answer yes or no.\n"
+                            yes-or-no-prompt)
+                    choices nil 'require-match)))
     (string= answer "yes")))
 
 (defadvice yes-or-no-p (around use-ido activate)
